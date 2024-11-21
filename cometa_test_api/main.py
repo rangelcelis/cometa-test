@@ -5,9 +5,7 @@ from routers.StockRouter import StockRouter
 from routers.OrderRouter import OrderRouter
 from models.BaseModel import init
 
-app = FastAPI(
-    title='Cometa Test API',
-)
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,

@@ -9,19 +9,15 @@ OrderRouter = APIRouter(
     prefix="/order", tags=["order"]
 )
 
-@OrderRouter.get('/{order_id}')
-def get(order_id: int, orderService: OrderService = Depends()):
-    return orderService.get(order_id)
-
-@OrderRouter.post('/')
-def create(orderService: OrderService = Depends()):
+@OrderRouter.post('/', status_code=201)
+def createOrder(orderService: OrderService = Depends()):
     newOrder = orderService.create()
     return newOrder.id
 
 @OrderRouter.patch('/{order_id}/round')
-def update(order_id: int, items: List = Body(..., embed=True), roundService: RoundService = Depends()):
+def updateOrder(order_id: int, items: List = Body(..., embed=True), roundService: RoundService = Depends()):
     return roundService.create(order_id, items)
 
 @OrderRouter.get('/{order_id}/bill')
-def get(order_id: int, orderService: OrderService = Depends()):
+def getOrderBill(order_id: int, orderService: OrderService = Depends()):
     return orderService.getBill(order_id)

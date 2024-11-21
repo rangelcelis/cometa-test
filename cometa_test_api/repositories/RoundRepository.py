@@ -17,14 +17,10 @@ class RoundRepository:
         self.db = db
     
     def create(self, round: Round, items: List):
-        newItems = []
-        
         for item in items:
-            newItems.append(Item(product_id=item['id'], quantity=item['quantity']))
+            round.items.append(Item(product_id=item['id'], quantity=item['quantity']))
         
-        round.items = newItems
-
         self.db.add(round)
         self.db.commit()
-        round = self.db.refresh(round)
+        self.db.refresh(round)
         return round
