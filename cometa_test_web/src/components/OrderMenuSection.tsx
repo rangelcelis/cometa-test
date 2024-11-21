@@ -48,7 +48,7 @@ export const OrderMenuSection = ({
       {stock.map((item) => (
         <div key={item.id} className="flex w-full justify-between">
           <div>
-            <span>{item.name}</span> (${item.price})
+            <span>{item.name}</span> [${item.price}]
           </div>
           <div className="px-8 ml-8">
             <Button
