@@ -5,12 +5,14 @@ type ButtonProps = {
   onClick: MouseEventHandler;
   shape: 'normal' | 'round';
   disabled?: boolean;
+  testId?: string;
 };
 
 export const Button = ({
   children,
   shape,
   onClick,
+  testId,
   disabled = false,
 }: ButtonProps): JSX.Element => {
   return (
@@ -19,6 +21,7 @@ export const Button = ({
       type="button"
       className={shape === 'normal' ? 'button' : 'button_round'}
       onClick={onClick}
+      data-testid={testId}
     >
       {children}
     </button>

@@ -6,9 +6,11 @@ export default function Bill({ bill }: any) {
 
   return (
     <div className="grid items-center justify-items-center p-8 pb-20 sm:p-20">
-      <h1 className="text-3xl">Bill</h1>
+      <h1 className="text-3xl" data-testid="text-title">
+        Bill
+      </h1>
 
-      <div className="grid px-2 py-4 my-4 border-2 rounded rounded-xl">
+      <div className="grid px-2 py-4 my-4 border-2 rounded rounded-xl" data-testid="div-bill">
         <h2 className="text-xl mb-4">Items</h2>
         {items.map((item: any) => (
           <div key={item.product_id} className="flex w-full justify-between">

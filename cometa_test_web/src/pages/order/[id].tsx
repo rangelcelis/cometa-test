@@ -36,7 +36,9 @@ export default function OrderPage({ stock }: OrderPageProps): JSX.Element {
 
   return (
     <div className="grid items-center justify-items-center p-8 pb-20 sm:p-20">
-      <h1 className="text-3xl">Menu</h1>
+      <h1 className="text-3xl" data-testid="text-title">
+        Menu
+      </h1>
       <OrderMenuSection stock={stock} order={orderItems} onOrderChange={setOrderItems} />
       <OrderButtonsSection
         orderId={orderId}

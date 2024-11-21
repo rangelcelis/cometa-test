@@ -7,7 +7,7 @@ describe("Home's test", () => {
   test('render Home page', () => {
     render(<Home />);
 
-    expect(screen.getByText(/welcome/i)).toBeDefined();
+    expect(screen.getByRole('heading', { level: 2, name: 'Welcome to' })).toBeDefined();
     expect(screen.getByRole('heading', { level: 1, name: 'Bar Tolo' })).toBeDefined();
     expect(screen.getByRole('button', { name: 'Order' })).toBeDefined();
   });

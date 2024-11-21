@@ -44,15 +44,18 @@ export const OrderMenuSection = ({
 
   return (
     <div className="grid p-2 my-4 border-2 rounded rounded-xl">
-      <h2 className="text-xl mb-4">Beers</h2>
+      <h2 className="text-xl mb-4" data-testid="text-item-title">
+        Beers
+      </h2>
       {stock.map((item) => (
-        <div key={item.id} className="flex w-full justify-between">
+        <div key={item.id} className="flex w-full justify-between" data-testid="div-item-row">
           <div>
             <span>{item.name}</span> [${item.price}]
           </div>
           <div className="px-8 ml-8">
             <Button
               shape="round"
+              testId="button-reduce"
               disabled={getQuantity(item.id) === 0}
               onClick={() => {
                 onReduceClick(item.id);
@@ -60,9 +63,12 @@ export const OrderMenuSection = ({
             >
               -
             </Button>
-            <span className="mx-4">{getQuantity(item.id)}</span>
+            <span className="mx-4" data-testid="text-quantity">
+              {getQuantity(item.id)}
+            </span>
             <Button
               shape="round"
+              testId="button-add"
               onClick={() => {
                 onAddClick(item.id);
               }}

@@ -16,24 +16,26 @@ export const OrderButtonsSection = ({
   onSubmitClick,
 }: OrderButtonsSectionProps): JSX.Element => {
   return (
-    <>
-      <div>
-        <Button disabled={disableSubmit} shape="normal" onClick={onSubmitClick}>
-          Submit
-        </Button>
-      </div>
+    <div className="grid justify-items-center">
+      <Button
+        shape="normal"
+        testId="button-submit"
+        disabled={disableSubmit}
+        onClick={onSubmitClick}
+      >
+        Submit
+      </Button>
       {showLink && (
-        <div>
-          <Link
-            href={{
-              pathname: '/order/bill',
-              query: { orderId },
-            }}
-          >
-            View Bill
-          </Link>
-        </div>
+        <Link
+          href={{
+            pathname: '/order/bill',
+            query: { orderId },
+          }}
+          data-testid="link-view-bill"
+        >
+          View Bill
+        </Link>
       )}
-    </>
+    </div>
   );
 };
